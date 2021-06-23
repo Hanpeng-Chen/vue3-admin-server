@@ -16,9 +16,10 @@ export interface UserModelProps {
   status: 0 | 1
 }
 
+// 注册接口params类型  id和isSuper创建时候可以不用定义自动分配
 export type RegisterModel = Omit<UserModelProps, 'id' | 'isSuper'>
 
-interface UserCreationAttributes extends Optional<UserModelProps, "id" | "isSuper" | "status"> {}
+interface UserCreationAttributes extends Optional<UserModelProps, "id" | "isSuper" | "status" | "avatar"> {}
 
 interface UserInstance extends Model<UserModelProps, UserCreationAttributes>, UserModelProps {}
 
