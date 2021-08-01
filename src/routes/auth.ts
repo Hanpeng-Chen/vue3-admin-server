@@ -6,6 +6,11 @@ const router = new Router({
   prefix: '/api/auth'
 })
 
+// 测试接口
+router.get('/test', async ctx => {
+  ctx.body = '这是个测试接口'
+})
+
 /**
  * 用户注册接口
  * /auth/register
@@ -16,7 +21,7 @@ router.post('/register', async ctx => {
 
 // 登录接口
 router.post('/login', async ctx => {
-  const { username, password } = ctx.request.body
+  const { username, password } = ctx.request.body as any
   ctx.body = await loginController({ username, password })
 })
 
