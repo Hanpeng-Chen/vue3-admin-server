@@ -12,6 +12,7 @@ export interface UserModelProps {
   email: string | null,
   mobile: string | null,
   avatar: string,
+  description: string,
   isSuper: 0 | 1,
   status: 0 | 1
 }
@@ -51,6 +52,10 @@ const User = seq.define<UserInstance>('User', {
   avatar: {
     type: DataTypes.STRING,
     comment: '头像'
+  },
+  description: {
+    type: DataTypes.TEXT,
+    comment: '描述说明'
   },
   isSuper: {
     type: DataTypes.BOOLEAN,

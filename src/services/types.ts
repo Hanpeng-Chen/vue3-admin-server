@@ -1,3 +1,4 @@
+import { AccessModelProps } from '../db/models/access'
 import { UserModelProps } from '../db/models/user'
 
 export interface UserWhereProps {
@@ -20,5 +21,10 @@ interface UserRole {
 export type UserInfo = UserModelProps & {
   UserRoles?: UserRole[];
   roles?: Role[];
+}
+
+export type AccessRole = AccessModelProps & {
+  RoleAccess?: UserRole[];
+  roles?: Role[]
 }
 
