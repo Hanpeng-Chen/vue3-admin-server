@@ -12,7 +12,7 @@ export const getAllUserService = async (offset = 0, limit = 10, query: Record<st
     whereProps.username = query.username
   }
 
-  if (!isNaN(query.status)) {
+  if (!isNaN(query.status) && query.status !== '') {
     whereProps.status = Number(query.status)
   }
 
