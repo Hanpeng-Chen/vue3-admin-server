@@ -1,5 +1,5 @@
 import Router from '@koa/router'
-import { loginController, registerController } from '../controller/auth'
+import { loginController, registerController, userInfoController } from '../controller/auth'
 import { RegisterModel } from '../db/models/user'
 
 const router = new Router({
@@ -23,6 +23,12 @@ router.post('/register', async ctx => {
 router.post('/login', async ctx => {
   const { username, password } = ctx.request.body as any
   ctx.body = await loginController({ username, password })
+})
+
+// 根据token获取用户信息
+router.post('/info', async ctx => {
+  const token = ctx.header.authorization as string
+  ctx.body = await userInfoController(token)
 })
 
 export default router
